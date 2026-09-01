@@ -1,0 +1,888 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chris</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         WELCOME SCREEN
+    ========================================================== -->
+
+    <div id="welcomeScreen">
+
+        <div class="welcome-box">
+
+            <h1>who are you ?</h1>
+
+            <div class="welcome-buttons">
+
+                <button
+                    type="button"
+                    id="meButton">
+                    me
+                </button>
+
+                <button
+                    type="button"
+                    id="goAwayButton">
+                    go away
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         BACKGROUND
+    ========================================================== -->
+
+    <div class="background-gif"></div>
+
+    <div class="background-overlay"></div>
+
+
+    <!-- =========================================================
+         MAIN WEBSITE
+    ========================================================== -->
+
+    <main id="mainWebsite">
+
+        <!-- BLUE HEART -->
+
+        <div
+            class="blue-heart"
+            id="blueHeart">
+            💙
+        </div>
+
+
+        <!-- VIEWER COUNTER -->
+
+        <div class="viewer-counter">
+
+            <span class="eye">
+                👁
+            </span>
+
+            <span id="viewerCount">
+                786
+            </span>
+
+        </div>
+
+
+        <!-- PROFILE -->
+
+        <section class="profile">
+
+            <h1 class="name">
+                Chris
+            </h1>
+
+            <p class="hate-promises">
+                i hate promisses
+            </p>
+
+
+            <!-- SOCIAL LINKS -->
+
+            <div class="social-links">
+
+                <a
+                    href="https://www.tiktok.com/@itschristuffer"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social-button">
+                    🎵 TikTok
+                </a>
+
+                <a
+                    href="https://www.roblox.com/users/5753213125/profile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social-button">
+                    🎮 Roblox
+                </a>
+
+                <a
+                    href="https://open.spotify.com/user/313qcvbd4z7pyu7bv4n22vdcfafi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social-button">
+                    🎧 Spotify
+                </a>
+
+                <a
+                    href="https://www.instagram.com/itschristuffer/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social-button">
+                    📸 Instagram
+                </a>
+
+                <button
+                    type="button"
+                    class="social-button"
+                    id="phoneButton">
+                    📱 PHONE NUMBER
+                </button>
+
+            </div>
+
+
+            <!-- ABOUT ME -->
+
+            <div class="info-card">
+
+                <h2>
+                    About Me
+                </h2>
+
+                <div class="info-row">
+
+                    <span>
+                        Height
+                    </span>
+
+                    <strong>
+                        6'2"
+                    </strong>
+
+                </div>
+
+                <div class="info-row">
+
+                    <span>
+                        Age
+                    </span>
+
+                    <strong>
+                        17
+                    </strong>
+
+                </div>
+
+                <div class="info-row">
+
+                    <span>
+                        Birthday
+                    </span>
+
+                    <strong>
+                        3/21/2009
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             MUSIC PLAYER
+        ====================================================== -->
+
+        <section class="music-player">
+
+            <div class="song-info">
+
+                <div
+                    class="song-cover"
+                    id="songCover">
+                    🎵
+                </div>
+
+                <div class="song-text">
+
+                    <h2 id="songTitle">
+                        pointatmyhead
+                    </h2>
+
+                    <p id="songArtist">
+                        Chris
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- TIME -->
+
+            <div class="time-row">
+
+                <span id="currentTime">
+                    0:00
+                </span>
+
+                <span id="duration">
+                    0:00
+                </span>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <input
+                type="range"
+                id="progressBar"
+                min="0"
+                max="100"
+                value="0"
+                step="0.1">
+
+
+            <!-- CONTROLS -->
+
+            <div class="controls">
+
+                <button
+                    type="button"
+                    id="volumeButton"
+                    title="Mute / Unmute">
+                    🔊
+                </button>
+
+                <button
+                    type="button"
+                    id="previousButton"
+                    title="Previous song">
+                    ⏮
+                </button>
+
+                <button
+                    type="button"
+                    id="backButton"
+                    title="Back 10 seconds">
+                    ↶
+                </button>
+
+                <button
+                    type="button"
+                    id="playButton"
+                    class="play-button"
+                    title="Play / Pause">
+                    ▶
+                </button>
+
+                <button
+                    type="button"
+                    id="forwardButton"
+                    title="Forward 10 seconds">
+                    ↷
+                </button>
+
+                <button
+                    type="button"
+                    id="nextButton"
+                    title="Next song">
+                    ⏭
+                </button>
+
+                <button
+                    type="button"
+                    id="favoriteButton"
+                    title="Favorite">
+                    ♡
+                </button>
+
+            </div>
+
+
+            <!-- VOLUME -->
+
+            <div class="volume-row">
+
+                <input
+                    type="range"
+                    id="volumeSlider"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value="1">
+
+                <span id="volumePercent">
+                    100%
+                </span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         I MISS MY EX POPUP
+    ========================================================== -->
+
+    <div id="exPopup">
+
+        <div class="ex-popup-box">
+
+            <div class="heart-glow">
+                💙
+            </div>
+
+            <h2>
+                I you so much hope you know 💙
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         AUDIO
+    ========================================================== -->
+
+    <audio
+        id="audioPlayer"
+        preload="auto">
+    </audio>
+
+
+    <!-- =========================================================
+         SCRIPT
+    ========================================================== -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const welcomeScreen =
+                document.getElementById("welcomeScreen");
+
+            const mainWebsite =
+                document.getElementById("mainWebsite");
+
+            const meButton =
+                document.getElementById("meButton");
+
+            const goAwayButton =
+                document.getElementById("goAwayButton");
+
+            const audioPlayer =
+                document.getElementById("audioPlayer");
+
+
+            /* =====================================================
+               ENTER WEBSITE
+            ===================================================== */
+
+            function enterWebsite() {
+
+                welcomeScreen.classList.add("hide");
+
+                mainWebsite.style.display = "flex";
+                mainWebsite.style.visibility = "visible";
+                mainWebsite.style.opacity = "1";
+
+                setTimeout(function () {
+
+                    welcomeScreen.style.display = "none";
+
+                }, 700);
+
+
+                /*
+                    Start the first song from the user's click.
+                    Browsers are much more likely to allow audio
+                    because this function is triggered by a button.
+                */
+
+                audioPlayer.src =
+                    "music/pointatmyhead.mp3";
+
+                audioPlayer.volume = 1;
+
+                audioPlayer.play().then(function () {
+
+                    document.getElementById(
+                        "playButton"
+                    ).textContent = "❚❚";
+
+                }).catch(function (error) {
+
+                    console.log(
+                        "Music could not autoplay:",
+                        error
+                    );
+
+                });
+
+            }
+
+
+            /* =====================================================
+               ME BUTTON
+            ===================================================== */
+
+            meButton.addEventListener(
+                "click",
+                enterWebsite
+            );
+
+
+            /* =====================================================
+               GO AWAY BUTTON
+            ===================================================== */
+
+            goAwayButton.addEventListener(
+                "click",
+                enterWebsite
+            );
+
+
+            /* =====================================================
+               MUSIC
+            ===================================================== */
+
+            const playButton =
+                document.getElementById("playButton");
+
+            const volumeButton =
+                document.getElementById("volumeButton");
+
+            const volumeSlider =
+                document.getElementById("volumeSlider");
+
+            const volumePercent =
+                document.getElementById("volumePercent");
+
+            const progressBar =
+                document.getElementById("progressBar");
+
+            const currentTime =
+                document.getElementById("currentTime");
+
+            const duration =
+                document.getElementById("duration");
+
+
+            /* PLAY / PAUSE */
+
+            playButton.addEventListener(
+                "click",
+                function () {
+
+                    if (audioPlayer.paused) {
+
+                        audioPlayer.play().then(function () {
+
+                            playButton.textContent =
+                                "❚❚";
+
+                        }).catch(function (error) {
+
+                            console.log(
+                                "Music play error:",
+                                error
+                            );
+
+                        });
+
+                    } else {
+
+                        audioPlayer.pause();
+
+                        playButton.textContent =
+                            "▶";
+
+                    }
+
+                }
+            );
+
+
+            /* VOLUME */
+
+            volumeSlider.addEventListener(
+                "input",
+                function () {
+
+                    const volume =
+                        Number(volumeSlider.value);
+
+                    audioPlayer.volume =
+                        volume;
+
+                    volumePercent.textContent =
+                        Math.round(volume * 100) + "%";
+
+                    if (volume === 0) {
+
+                        volumeButton.textContent =
+                            "🔇";
+
+                    } else if (volume < 0.5) {
+
+                        volumeButton.textContent =
+                            "🔉";
+
+                    } else {
+
+                        volumeButton.textContent =
+                            "🔊";
+
+                    }
+
+                }
+            );
+
+
+            /* MUTE */
+
+            volumeButton.addEventListener(
+                "click",
+                function () {
+
+                    if (audioPlayer.volume > 0) {
+
+                        audioPlayer.dataset.oldVolume =
+                            audioPlayer.volume;
+
+                        audioPlayer.volume = 0;
+
+                        volumeSlider.value = 0;
+
+                        volumePercent.textContent =
+                            "0%";
+
+                        volumeButton.textContent =
+                            "🔇";
+
+                    } else {
+
+                        const oldVolume =
+                            Number(
+                                audioPlayer.dataset.oldVolume
+                            ) || 1;
+
+                        audioPlayer.volume =
+                            oldVolume;
+
+                        volumeSlider.value =
+                            oldVolume;
+
+                        volumePercent.textContent =
+                            Math.round(oldVolume * 100) + "%";
+
+                        volumeButton.textContent =
+                            "🔊";
+
+                    }
+
+                }
+            );
+
+
+            /* PROGRESS */
+
+            audioPlayer.addEventListener(
+                "timeupdate",
+                function () {
+
+                    if (!audioPlayer.duration) {
+                        return;
+                    }
+
+                    progressBar.value =
+                        (audioPlayer.currentTime /
+                        audioPlayer.duration) * 100;
+
+                    currentTime.textContent =
+                        formatTime(
+                            audioPlayer.currentTime
+                        );
+
+                }
+            );
+
+
+            /* DURATION */
+
+            audioPlayer.addEventListener(
+                "loadedmetadata",
+                function () {
+
+                    duration.textContent =
+                        formatTime(
+                            audioPlayer.duration
+                        );
+
+                }
+            );
+
+
+            /* SEEK */
+
+            progressBar.addEventListener(
+                "input",
+                function () {
+
+                    if (!audioPlayer.duration) {
+                        return;
+                    }
+
+                    audioPlayer.currentTime =
+                        (progressBar.value / 100) *
+                        audioPlayer.duration;
+
+                }
+            );
+
+
+            /* BACK 10 */
+
+            document.getElementById(
+                "backButton"
+            ).addEventListener(
+                "click",
+                function () {
+
+                    audioPlayer.currentTime =
+                        Math.max(
+                            0,
+                            audioPlayer.currentTime - 10
+                        );
+
+                }
+            );
+
+
+            /* FORWARD 10 */
+
+            document.getElementById(
+                "forwardButton"
+            ).addEventListener(
+                "click",
+                function () {
+
+                    audioPlayer.currentTime =
+                        Math.min(
+                            audioPlayer.duration || 0,
+                            audioPlayer.currentTime + 10
+                        );
+
+                }
+            );
+
+
+            /* =====================================================
+               SONG LIST
+            ===================================================== */
+
+            const songs = [
+
+                "music/pointatmyhead.mp3",
+                "music/NOT HERE.mp3",
+                "music/123.mp3",
+                "music/TOO LATE.mp3",
+                "music/ALL I WANT IS YOU NOW.mp3",
+                "music/stalk your socials.mp3"
+
+            ];
+
+
+            const songNames = [
+
+                "pointatmyhead",
+                "NOT HERE",
+                "123",
+                "TOO LATE",
+                "all i want is you now",
+                "stalk your socials"
+
+            ];
+
+
+            let currentSong = 0;
+
+
+            /* NEXT */
+
+            document.getElementById(
+                "nextButton"
+            ).addEventListener(
+                "click",
+                function () {
+
+                    currentSong++;
+
+                    if (currentSong >= songs.length) {
+                        currentSong = 0;
+                    }
+
+                    changeSong();
+
+                }
+            );
+
+
+            /* PREVIOUS */
+
+            document.getElementById(
+                "previousButton"
+            ).addEventListener(
+                "click",
+                function () {
+
+                    currentSong--;
+
+                    if (currentSong < 0) {
+                        currentSong =
+                            songs.length - 1;
+                    }
+
+                    changeSong();
+
+                }
+            );
+
+
+            function changeSong() {
+
+                audioPlayer.src =
+                    songs[currentSong];
+
+                document.getElementById(
+                    "songTitle"
+                ).textContent =
+                    songNames[currentSong];
+
+                audioPlayer.play().then(function () {
+
+                    playButton.textContent =
+                        "❚❚";
+
+                }).catch(function (error) {
+
+                    console.log(
+                        "Song could not play:",
+                        error
+                    );
+
+                });
+
+            }
+
+
+            /* AUTO NEXT */
+
+            audioPlayer.addEventListener(
+                "ended",
+                function () {
+
+                    currentSong++;
+
+                    if (currentSong >= songs.length) {
+                        currentSong = 0;
+                    }
+
+                    changeSong();
+
+                }
+            );
+
+
+            /* =====================================================
+               PHONE BUTTON
+            ===================================================== */
+
+            const phoneButton =
+                document.getElementById("phoneButton");
+
+            phoneButton.addEventListener(
+                "click",
+                function () {
+
+                    phoneButton.textContent =
+                        "you thought 😂";
+
+                }
+            );
+
+
+            /* =====================================================
+               BLUE HEART
+            ===================================================== */
+
+            const blueHeart =
+                document.getElementById("blueHeart");
+
+            const exPopup =
+                document.getElementById("exPopup");
+
+
+            blueHeart.addEventListener(
+                "click",
+                function () {
+
+                    exPopup.classList.add("show");
+
+                    setTimeout(
+                        function () {
+
+                            exPopup.classList.remove("show");
+
+                        },
+                        800
+                    );
+
+                }
+            );
+
+
+            /* =====================================================
+               TIME FORMAT
+            ===================================================== */
+
+            function formatTime(seconds) {
+
+                if (
+                    !seconds ||
+                    isNaN(seconds)
+                ) {
+                    return "0:00";
+                }
+
+                const minutes =
+                    Math.floor(seconds / 60);
+
+                const secondsPart =
+                    Math.floor(seconds % 60)
+                    .toString()
+                    .padStart(2, "0");
+
+                return (
+                    minutes +
+                    ":" +
+                    secondsPart
+                );
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
+```

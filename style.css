@@ -1,0 +1,809 @@
+```css
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --theme: #4da6ff;
+    --theme-glow: rgba(77, 166, 255, 0.7);
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background: #050505;
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+/* ==================================================
+   BACKGROUND GIF
+================================================== */
+
+.background-gif {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-image: url("./images/background.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   BACKGROUND DARKNESS
+================================================== */
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.30),
+        rgba(0, 0, 0, 0.72)
+    );
+
+    z-index: 1;
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   WELCOME SCREEN
+================================================== */
+
+#welcomeScreen {
+    position: fixed;
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    backdrop-filter: blur(15px);
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transition:
+        opacity 0.7s ease,
+        visibility 0.7s ease;
+}
+
+#welcomeScreen.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   WELCOME BOX
+================================================== */
+
+.welcome-box {
+    width: min(500px, calc(100% - 40px));
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    background: rgba(10, 10, 15, 0.78);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 0 50px rgba(0, 0, 0, 0.7);
+}
+
+.welcome-box h1 {
+    font-size: clamp(35px, 7vw, 60px);
+
+    margin-bottom: 30px;
+
+    text-shadow:
+        0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+
+/* ==================================================
+   WELCOME BUTTONS
+================================================== */
+
+.welcome-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+}
+
+.welcome-buttons button {
+    min-width: 130px;
+
+    padding: 14px 25px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+    position: relative;
+
+    z-index: 100000;
+}
+
+.welcome-buttons button:hover {
+    background: var(--theme);
+
+    box-shadow:
+        0 0 25px var(--theme);
+
+    transform: translateY(-3px);
+}
+
+
+/* ==================================================
+   MAIN WEBSITE
+================================================== */
+
+#mainWebsite {
+    position: relative;
+
+    z-index: 2;
+
+    min-height: 100vh;
+
+    padding: 70px 20px 210px;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+.profile {
+    width: min(600px, 100%);
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   NAME
+================================================== */
+
+.name {
+    font-size: clamp(50px, 10vw, 80px);
+
+    margin-bottom: 5px;
+
+    text-shadow:
+        0 0 15px var(--theme),
+        0 0 40px var(--theme);
+}
+
+.hate-promises {
+    font-size: 17px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 30px;
+
+    opacity: 0.9;
+}
+
+
+/* ==================================================
+   TOP RIGHT BLUE HEART
+================================================== */
+
+.blue-heart {
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+
+    z-index: 5000;
+
+    font-size: 32px;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    filter:
+        drop-shadow(0 0 8px #248cff)
+        drop-shadow(0 0 20px #248cff);
+
+    animation:
+        heartPulse 2s infinite ease-in-out;
+}
+
+@keyframes heartPulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+
+/* ==================================================
+   VIEWER COUNTER
+================================================== */
+
+.viewer-counter {
+    position: fixed;
+
+    top: 20px;
+    right: 70px;
+
+    z-index: 4000;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 8px 14px;
+
+    border-radius: 999px;
+
+    background: rgba(20, 20, 20, 0.70);
+
+    border: 1px solid var(--theme);
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 0 15px rgba(77, 166, 255, 0.25);
+
+    font-weight: bold;
+}
+
+.eye {
+    font-size: 15px;
+}
+
+
+/* ==================================================
+   SOCIAL LINKS
+================================================== */
+
+.social-links {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+}
+
+.social-button {
+    width: 100%;
+
+    padding: 15px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.15);
+
+    border-radius: 15px;
+
+    background:
+        rgba(10, 10, 10, 0.60);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(15px);
+
+    transition:
+        transform 0.2s,
+        background 0.2s,
+        box-shadow 0.2s;
+}
+
+.social-button:hover {
+    transform:
+        translateY(-3px);
+
+    background:
+        var(--theme);
+
+    box-shadow:
+        0 0 25px var(--theme);
+}
+
+
+/* ==================================================
+   ABOUT ME
+================================================== */
+
+.info-card {
+    padding: 24px;
+
+    margin-bottom: 20px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.13);
+
+    border-radius: 20px;
+
+    background:
+        rgba(10, 10, 10, 0.65);
+
+    backdrop-filter: blur(15px);
+}
+
+.info-card h2 {
+    margin-bottom: 15px;
+}
+
+.info-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 13px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-row strong {
+    color:
+        var(--theme);
+
+    text-shadow:
+        0 0 10px var(--theme);
+}
+
+
+/* ==================================================
+   MUSIC PLAYER
+================================================== */
+
+.music-player {
+    position: fixed;
+
+    left: 50%;
+    bottom: 18px;
+
+    transform:
+        translateX(-50%);
+
+    width:
+        min(720px, calc(100% - 30px));
+
+    padding:
+        18px 22px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.15);
+
+    border-radius: 22px;
+
+    background:
+        rgba(5, 5, 8, 0.90);
+
+    backdrop-filter:
+        blur(22px);
+
+    box-shadow:
+        0 15px 50px
+        rgba(0, 0, 0, 0.7);
+
+    z-index: 3000;
+}
+
+
+/* ==================================================
+   SONG INFO
+================================================== */
+
+.song-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 12px;
+}
+
+.song-cover {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 13px;
+
+    background:
+        var(--theme);
+
+    box-shadow:
+        0 0 20px
+        var(--theme);
+}
+
+.song-info h2 {
+    font-size: 16px;
+}
+
+.song-info p {
+    margin-top: 3px;
+
+    font-size: 13px;
+
+    opacity: 0.55;
+}
+
+
+/* ==================================================
+   TIME
+================================================== */
+
+.time-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 5px;
+
+    font-size: 12px;
+
+    opacity: 0.7;
+}
+
+
+/* ==================================================
+   PROGRESS BAR
+================================================== */
+
+#progressBar {
+    width: 100%;
+
+    accent-color:
+        var(--theme);
+
+    cursor: pointer;
+}
+
+
+/* ==================================================
+   CONTROLS
+================================================== */
+
+.controls {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 10px;
+}
+
+.controls button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        transparent;
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.controls button:hover {
+    color:
+        var(--theme);
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    transform:
+        scale(1.1);
+}
+
+.controls .play-button {
+    width: 52px;
+    height: 52px;
+
+    background:
+        var(--theme);
+
+    color: white;
+
+    font-size: 22px;
+
+    box-shadow:
+        0 0 22px
+        var(--theme);
+}
+
+.controls .play-button:hover {
+    color: white;
+
+    background:
+        var(--theme);
+
+    transform:
+        scale(1.06);
+}
+
+
+/* ==================================================
+   VOLUME
+================================================== */
+
+.volume-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 10px;
+}
+
+#volumeSlider {
+    width: 130px;
+
+    accent-color:
+        var(--theme);
+
+    cursor: pointer;
+}
+
+#volumePercent {
+    min-width: 40px;
+
+    text-align: left;
+
+    font-size: 12px;
+
+    opacity: 0.7;
+}
+
+
+/* ==================================================
+   I MISS MY EX POPUP
+================================================== */
+
+#exPopup {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(0, 0, 0, 0.45);
+
+    backdrop-filter:
+        blur(8px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.2s ease;
+}
+
+#exPopup.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: none;
+}
+
+.ex-popup-box {
+    width:
+        min(400px, calc(100% - 40px));
+
+    padding:
+        35px 25px;
+
+    text-align: center;
+
+    border-radius: 25px;
+
+    background:
+        rgba(5, 20, 40, 0.95);
+
+    border:
+        1px solid
+        rgba(60, 150, 255, 0.5);
+
+    box-shadow:
+        0 0 30px
+        rgba(40, 140, 255, 0.5);
+
+    transform:
+        scale(0.9);
+
+    transition:
+        transform 0.2s ease;
+}
+
+#exPopup.show .ex-popup-box {
+    transform:
+        scale(1);
+}
+
+.ex-popup-box .heart-glow {
+    font-size: 45px;
+
+    margin-bottom: 10px;
+
+    filter:
+        drop-shadow(0 0 8px #268cff)
+        drop-shadow(0 0 20px #268cff);
+}
+
+.ex-popup-box h2 {
+    color:
+        #73b6ff;
+
+    font-size: 25px;
+
+    text-shadow:
+        0 0 15px #268cff;
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 600px) {
+
+    #mainWebsite {
+        padding-top: 90px;
+    }
+
+    .viewer-counter {
+        right: 65px;
+    }
+
+    .blue-heart {
+        right: 15px;
+
+        font-size: 28px;
+    }
+
+    .music-player {
+        width:
+            calc(100% - 20px);
+
+        bottom: 10px;
+
+        padding: 15px;
+    }
+
+    .volume-row {
+        gap: 6px;
+    }
+
+    #volumeSlider {
+        width: 100px;
+    }
+
+    .controls {
+        gap: 2px;
+    }
+
+    .controls button {
+        width: 35px;
+        height: 35px;
+
+        font-size: 17px;
+    }
+
+    .controls .play-button {
+        width: 46px;
+        height: 46px;
+    }
+
+    .welcome-buttons {
+        flex-direction: column;
+    }
+
+    .welcome-buttons button {
+        width: 100%;
+    }
+}
+```
